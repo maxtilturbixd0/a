@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error 404 - Página no encontrada</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <img id="error-image" alt="Error 404">
+
+    <script>
+        // Detectar si el dispositivo es móvil o de escritorio
+        function updateErrorImage() {
+            const errorImage = document.getElementById('error-image');
+            if (window.innerWidth <= 768) { // Ancho típico para móviles
+                errorImage.src = './img/error404m-mobile.jpg';
+            } else {
+                errorImage.src = './img/error404-desktop.jpg';
+            }
+        }
+
+        // Actualizar la imagen al cargar la página
+        updateErrorImage();
+
+        // Escuchar cambios de tamaño de la ventana para actualizar la imagen en tiempo real
+        window.addEventListener('resize', updateErrorImage);
+    </script>
+</body>
+</html>
